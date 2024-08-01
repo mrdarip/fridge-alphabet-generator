@@ -36,8 +36,9 @@ generateChar(
     font = "Comic Sans MS:style=Bold",
     charThickness = 10,
     magnetOffset = charactersAndPos[charId][1],
-    magnetDiameter = 3,
-    magnetHeight = 3
+    magnetDiagonal = 3,
+    magnetHeight = 3,
+    magnetSides=100
 );
 
 
@@ -48,9 +49,9 @@ module generateChar(
     font = "Arial",
     charThickness = 10,
     magnetOffset = [0, 0],
-    magnetDiameter = 3,
+    magnetDiagonal = 3,
     magnetHeight = 3,
-    magnetSides=100
+    magnetSides=4
 ){
     if(charThickness < magnetHeight){
         echo("Error: charThickness must be greater than magnetHeight");
@@ -63,7 +64,7 @@ module generateChar(
             }
             color("red") 
             translate([magnetOffset[0], magnetOffset[1],charThickness - magnetHeight/2])
-            cylinder(d = magnetDiameter, h=magnetHeight, center=true, $fn=magnetSides);
+            cylinder(d = magnetDiagonal, h=magnetHeight, center=true, $fn=magnetSides);
         }
     }
 }
