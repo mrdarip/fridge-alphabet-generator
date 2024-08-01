@@ -50,17 +50,20 @@ module generateChar(
     magnetOffset = [0, 0],
     magnetDiameter = 3,
     magnetHeight = 3,
+    magnetSides=100
 ){
     if(charThickness < magnetHeight){
         echo("Error: charThickness must be greater than magnetHeight");
     }else{
         echo("Generating character: ", char);
 
-        linear_extrude(height = charThickness){
-            text(text = char, size = fontSize, font = font);
+        difference() {
+            linear_extrude(height = charThickness){
+                text(text = char, size = fontSize, font = font);
+            }
+            color("red") 
+            translate([magnetOffset[0], magnetOffset[1],charThickness - magnetHeight/2])
+            cylinder(d = magnetDiameter, h=magnetHeight, center=true, $fn=magnetSides);
         }
-        color("red") 
-        translate([magnetOffset[0], magnetOffset[1], 0])
-        cylinder(d = magnetDiameter, h=magnetHeight, center=true);
     }
 }
