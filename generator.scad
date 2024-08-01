@@ -59,13 +59,22 @@ module generateChar(
     }else{
         echo("Generating character: ", char);
 
-        difference() {
-            linear_extrude(height = charThickness){
-                text(text = char, size = fontSize, font = font);
+        if($preview){
+            #linear_extrude(height = charThickness){
+                    text(text = char, size = fontSize, font = font);
+                }
+                color("red") 
+                translate([magnetOffset[0], magnetOffset[1],charThickness - magnetHeight/2+1])
+                cylinder(d = magnetDiagonal, h=magnetHeight, center=true, $fn=magnetSides);
+        }else{
+            difference() {
+                linear_extrude(height = charThickness){
+                    text(text = char, size = fontSize, font = font);
+                }
+                color("red") 
+                translate([magnetOffset[0], magnetOffset[1],charThickness - magnetHeight/2])
+                cylinder(d = magnetDiagonal, h=magnetHeight, center=true, $fn=magnetSides);
             }
-            color("red") 
-            translate([magnetOffset[0], magnetOffset[1],charThickness - magnetHeight/2])
-            cylinder(d = magnetDiagonal, h=magnetHeight, center=true, $fn=magnetSides);
         }
     }
 }
