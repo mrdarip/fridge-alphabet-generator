@@ -1,16 +1,30 @@
 const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var currentChar = 0;
+var charArray = [];
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
+var outputTextarea = document.getElementById('output');
+
 drawCanvas();
 
 canvas.addEventListener('mousedown', function(e) {
-    getCursorPosition(canvas, e)
+    charArray.push(
+        [
+            characters[currentChar],
+            getCursorPosition(canvas, e)
+        ]
+    );
     
-    currentChar++;
-    drawCanvas();
+    if(currentChar < characters.length - 1){
+        currentChar++;
+        drawCanvas();
+    } else
+    {
+        outputTextarea.value = JSON.stringify(charArray, null, 2);
+    }
+
 })
 
 function drawCanvas(){
@@ -29,5 +43,5 @@ function getCursorPosition(canvas, event) {
     const rect = canvas.getBoundingClientRect()
     const x = ((event.clientX - rect.left) - 77) / 10.79 + 2.58
     const y = ((-(event.clientY - rect.top) + 430) /384) * 35.45
-    console.log(x+", " + y)
+    return [x, y];
 }
