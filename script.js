@@ -15,7 +15,7 @@ ctx.fillText("H",50,430);
 
 function getCursorPosition(canvas, event) {
     const rect = canvas.getBoundingClientRect()
-    const x = (event.clientX - rect.left)
+    const x = ((event.clientX - rect.left) - 77) / 10.79 + 2.58
     const y = ((-(event.clientY - rect.top) + 430) /384) * 35.45
     console.log(x+", " + y)
 }
@@ -28,15 +28,9 @@ canvas.addEventListener('mousedown', function(e) {
 With consolas font
 
 should be
-
-2.58 35.45      27.97 35.45
-
 2.58 0          27.97 0
 
 
 is
-
-77  -46             351  -46
-
 77  -430            351  -430
 */
