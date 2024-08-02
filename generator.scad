@@ -30,7 +30,7 @@ charactersAndPos=
 
 charId = 7;
 mDia = 3;
-mH = 3
+mH = 3;
 mSides = 100;
 
 

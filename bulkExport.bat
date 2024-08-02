@@ -30,7 +30,11 @@ SET chars25=Z
 REM set variable with openscad dir
 set OPSCAD_DIR=C:\Program Files\OpenSCAD\openscad.exe
 
-FOR /L %%A IN (0,1,2) DO (
-  call "%OPSCAD_DIR%" -o %%chars%%A%%.stl -D charId=%%A generator.scad
+REM Square magnets
 
+FOR /L %%B IN (1,1,2) DO (
+    mkdir "magnets\square\magnets_%%Bmm_diameter"
+    FOR /L %%A IN (0,1,2) DO (
+        call "%OPSCAD_DIR%" -o magnets\square\magnets_%%Bmm_diameter\%%chars%%A%%.stl -D charId=%%A -D mDia=%%B -D mSides=4 ./generator.scad
+    )
 )
