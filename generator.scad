@@ -38,7 +38,7 @@ generateChar(
     char = charactersAndPos[charId][0],
     fontSize = 40,
     font = "Comic sans MS:style=Bold",
-    charThickness = 2 + mH,
+    charThickness =  2,
     magnetOffset = charactersAndPos[charId][1],
     magnetDiagonal = mDia,
     magnetHeight = mH,
@@ -57,27 +57,23 @@ module generateChar(
     magnetHeight = 3,
     magnetSides=4
 ){
-    if(charThickness < magnetHeight){
-        echo("Error: charThickness must be greater than magnetHeight");
-    }else{
-        echo("Generating character: ", char);
+    echo("Generating character: ", char);
 
-        if($preview){
-            #linear_extrude(height = charThickness){
-                    text(text = char, size = fontSize, font = font);
-                }
-                color("red") 
-                translate([magnetOffset[0], magnetOffset[1],charThickness - magnetHeight/2+1])
-                cylinder(d = magnetDiagonal, h=magnetHeight, center=true, $fn=magnetSides);
-        }else{
-            difference() {
-                linear_extrude(height = charThickness){
-                    text(text = char, size = fontSize, font = font);
-                }
-                color("red") 
-                translate([magnetOffset[0], magnetOffset[1],charThickness - magnetHeight/2])
-                cylinder(d = magnetDiagonal, h=magnetHeight, center=true, $fn=magnetSides);
+    if($preview){
+            #linear_extrude(height = charThickness+magnetHeight){
+                text(text = char, size = fontSize, font = font);
             }
+            color("red") 
+            translate([magnetOffset[0], magnetOffset[1],magnetHeight/2 + charThickness])
+            cylinder(d = magnetDiagonal, h=magnetHeight, center=true, $fn=magnetSides);
+    }else{
+        difference() {
+            linear_extrude(height = charThickness+magnetHeight){
+                text(text = char, size = fontSize, font = font);
+            }
+            color("red") 
+            translate([magnetOffset[0], magnetOffset[1],charThickness - magnetHeight/2])
+            cylinder(d = magnetDiagonal, h=magnetHeight, center=true, $fn=magnetSides);
         }
     }
 }
