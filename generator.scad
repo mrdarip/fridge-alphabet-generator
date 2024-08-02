@@ -7,7 +7,7 @@ charactersAndPos=
     ["E", [20, 21]],
     ["F", [18, 23]],
     ["G", [18, 17]],
-    ["H", [37.47449438202247, 30.448235294117644]],
+    ["H", [21.76443002780352, 19.109765625]],
     ["I", [14, 20]],
     ["J", [23, 19]],
     ["K", [9.3, 18.5]],
@@ -33,7 +33,7 @@ charId = 7;
 generateChar(
     char = charactersAndPos[charId][0],
     fontSize = 40,
-    font = "Consolas:style=Bold",
+    font = "Comic sans MS:style=Bold",
     charThickness = 10,
     magnetOffset = charactersAndPos[charId][1],
     magnetDiagonal = 3,

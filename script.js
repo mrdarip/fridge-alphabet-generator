@@ -10,7 +10,7 @@ ctx.fillRect(0, 0, 500, 500);
 
 //write letter "a"
 ctx.fillStyle = "black";
-ctx.font = "bold 600px Consolas";
+ctx.font = "bold 600px Comic Sans MS";
 ctx.fillText("H",50,430);
 
 function getCursorPosition(canvas, event) {
