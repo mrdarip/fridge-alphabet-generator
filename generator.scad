@@ -1,6 +1,5 @@
 charactersAndPos=
 [
-
     ["A", [20, 15]],
     ["B", [15, 20]],
     ["C", [24, 36.7]],
@@ -29,7 +28,7 @@ charactersAndPos=
     ["Z", [16,19]]
 ];
 
-charId = 25;
+charId = 7;
 
 generateChar(
     char = charactersAndPos[charId][0],
