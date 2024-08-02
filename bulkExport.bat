@@ -36,7 +36,7 @@ FOR /L %%H IN (1,1,10) DO (
     FOR /L %%D IN (1,1,10) DO (
         mkdir "magnets\square\%%Dmm_diameter\%%Hmm_height"
         FOR /L %%A IN (0,1,25) DO (
-            call "%OPSCAD_DIR%" -o magnets\square\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D mDia=%%B -D mSides=4 %~dp0generator.scad
+            call "%OPSCAD_DIR%" -q -o magnets\square\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D mDia=%%B -D mSides=4 %~dp0generator.scad
         )
     )
 )
@@ -45,7 +45,7 @@ FOR /L %%H IN (1,1,10) DO (
     FOR /L %%D IN (1,1,10) DO (
         mkdir "magnets\round\%%Dmm_diameter\%%Hmm_height"
         FOR /L %%A IN (0,1,25) DO (
-            call "%OPSCAD_DIR%" -o magnets\round\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D mDia=%%B -D mSides=100 %~dp0generator.scad
+            call "%OPSCAD_DIR%" -q -o magnets\round\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D mDia=%%B -D mSides=100 %~dp0generator.scad
         )
     )
 )
