@@ -29,16 +29,20 @@ charactersAndPos=
 ];
 
 charId = 7;
+mDia = 3;
+mH = 3
+mSides = 100;
+
 
 generateChar(
     char = charactersAndPos[charId][0],
     fontSize = 40,
     font = "Comic sans MS:style=Bold",
-    charThickness = 10,
+    charThickness = 2 + mH,
     magnetOffset = charactersAndPos[charId][1],
-    magnetDiagonal = 3,
-    magnetHeight = 3,
-    magnetSides=100
+    magnetDiagonal = mDia,
+    magnetHeight = mH,
+    magnetSides = mSides
 );
 
 
