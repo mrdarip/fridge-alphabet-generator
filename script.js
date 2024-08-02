@@ -6,6 +6,7 @@ var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
 var outputTextarea = document.getElementById('output');
+var fontNameInput = document.getElementById('fontName');
 
 drawCanvas();
 
@@ -27,6 +28,10 @@ canvas.addEventListener('mousedown', function(e) {
 
 })
 
+fontNameInput.addEventListener('input', function(e) {
+    drawCanvas();
+})
+
 function drawCanvas(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -34,7 +39,7 @@ function drawCanvas(){
     ctx.fillRect(0, 0, 500, 500);
     
     ctx.fillStyle = "black";
-    ctx.font = "bold 600px Comic Sans MS";
+    ctx.font = "bold 600px " + fontNameInput.value;
     ctx.fillText(characters[currentChar],50,430);
     
 }
