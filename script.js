@@ -16,7 +16,7 @@ ctx.fillText("H",50,430);
 function getCursorPosition(canvas, event) {
     const rect = canvas.getBoundingClientRect()
     const x = (event.clientX - rect.left)
-    const y = -(event.clientY - rect.top)
+    const y = ((-(event.clientY - rect.top) + 430) /384) * 35.45
     console.log(x+", " + y)
 }
 
