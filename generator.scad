@@ -212,8 +212,6 @@ module generateChar(
     magnetHeight = 3,
     magnetSides=4
 ){
-    echo("Generating character: ", char);
-
     if($preview){
             #linear_extrude(height = charThickness+magnetHeight){
                 text(text = char, size = fontSize, font = font);
