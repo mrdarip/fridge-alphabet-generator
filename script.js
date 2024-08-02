@@ -10,13 +10,13 @@ ctx.fillRect(0, 0, 500, 500);
 
 //write letter "a"
 ctx.fillStyle = "black";
-ctx.font = "bold 500px Comic Sans MS";
-ctx.fillText("Hello World",50,430);
+ctx.font = "bold 600px Consolas";
+ctx.fillText("H",50,430);
 
 function getCursorPosition(canvas, event) {
     const rect = canvas.getBoundingClientRect()
-    const x = ((event.clientX - rect.left) - 149) /8.9 + 11.07
-    const y = (-(event.clientY - rect.top)+481 -237)/17 +20.86
+    const x = (event.clientX - rect.left)
+    const y = -(event.clientY - rect.top)
     console.log(x+", " + y)
 }
 
@@ -25,19 +25,18 @@ canvas.addEventListener('mousedown', function(e) {
 })
 
 /*
-For H top left corner
-and H bottom right corner
+With consolas font
 
-should output
-11.07, 20.86
-32.10, 16.92
+should be
 
-outputs
-149, 242
-337, 274
+2.58 35.45      27.97 35.45
 
-199.07/ n = 32.10
-    n = 199.07/32.10
-    n = 6.20
- -14.14
+2.58 0          27.97 0
+
+
+is
+
+77  -46             351  -46
+
+77  -430            351  -430
 */

@@ -33,7 +33,7 @@ charId = 7;
 generateChar(
     char = charactersAndPos[charId][0],
     fontSize = 40,
-    font = "Comic Sans MS:style=Bold",
+    font = "Consolas:style=Bold",
     charThickness = 10,
     magnetOffset = charactersAndPos[charId][1],
     magnetDiagonal = 3,
