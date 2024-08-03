@@ -33,5 +33,5 @@ set OPSCAD_DIR=C:\Program Files\OpenSCAD\openscad.exe
 
 mkdir "preview"
 FOR /L %%A IN (0,1,25) DO (
-    call "%OPSCAD_DIR%" -q --preview -o preview/%%chars%%A%%.png -D charId=%%A ./generator.scad
+    call "%OPSCAD_DIR%" -q --preview --projection o --camera=20,20,0,0,0,0,100 -o preview/%%chars%%A%%.png -D charId=%%A ./generator.scad
 )
