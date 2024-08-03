@@ -212,21 +212,12 @@ module generateChar(
     magnetHeight = 3,
     magnetSides=4
 ){
-    if($preview){
-            #linear_extrude(height = charThickness+magnetHeight){
-                text(text = char, size = fontSize, font = font);
-            }
-            color("red") 
-            translate([magnetOffset[0], magnetOffset[1],magnetHeight/2 + charThickness])
-            cylinder(d = magnetDiagonal, h=magnetHeight, center=true, $fn=magnetSides);
-    }else{
         difference() {
             linear_extrude(height = charThickness+magnetHeight){
-                text(text = char, size = fontSize, font = font);
+                text(text = char, size = fontSize, font = font, $fn=200);
             }
             color("red") 
             translate([magnetOffset[0], magnetOffset[1],charThickness - magnetHeight/2])
             cylinder(d = magnetDiagonal, h=magnetHeight, center=true, $fn=magnetSides);
         }
-    }
 }
