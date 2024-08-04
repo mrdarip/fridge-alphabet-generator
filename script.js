@@ -17,7 +17,7 @@ charImg.addEventListener('mousedown', function(e) {
     charArray.push(
         [
             characters[currentChar],
-            getCursorUnitaryPosition(charImg, e).map(x => x * ySize)
+            getCursorUnitaryPosition(charImg, e).map(x => Math.round(x * ySize * 1000)/1000)
         ]
     );
 
