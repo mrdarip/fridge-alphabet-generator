@@ -9,7 +9,7 @@ const maxHoleDiameterInMM = 8;
 
 const ySizeInMM = 0.4 * distance;
 const pxPerMM = previewResolution[1] / ySizeInMM;
-const maxHoleDiameterScreenPercent = (maxHoleDiameterInMM * pxPerMM) / previewResolution[1] * 100;
+const maxHoleDiameterScreenPercent = (maxHoleDiameterInMM/ ySizeInMM) * 100;
 const maxHoleDiameterInPx =  maxHoleDiameterInMM * pxPerMM;
 
 
@@ -17,7 +17,7 @@ var charImg = document.getElementById('char');
 var outputTextarea = document.getElementById('output');
 var maxDiameterCircle = document.getElementById('maxDiameterCircle');
 maxDiameterCircle.style.width =  maxHoleDiameterInPx+ "px";
-maxDiameterCircle.style.height =  maxHoleDiameterScreenPercent + "vw";
+maxDiameterCircle.style.height =  "5.4 vw";
 
 drawCanvas();
 
