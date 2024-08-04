@@ -33,7 +33,5 @@ set /P font=Enter font name:
 
 mkdir "preview"
 FOR /L %%A IN (0,1,3) DO (
-    set "fontName=%font%"
-    set "char=chars%%A"
-    call "%OPSCAD_DIR%" --preview --projection o --camera=20,20,0,0,0,0,120 --imgsize=1000,1000 -o preview/!char!.png -D charId=%%A -D fontName="%fontName%" ./generator.scad
+    call "%OPSCAD_DIR%" --preview --projection o --camera=20,20,0,0,0,0,120 --imgsize=1000,1000 -o preview/%%chars%%A%%.png -D "fontName=\"%font%\"" -D charId=%%A ./generator.scad
 )
