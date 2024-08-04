@@ -39,8 +39,8 @@ function drawCanvas(){
 
 function getCursorUnitaryPosition(element, event) {
     const rect = element.getBoundingClientRect()
-    const x = ((event.clientX - rect.left) / element.width) - 0.5
-    const y = ((-(event.clientY - rect.top) / element.height) + 1) - 0.5;
+    const x = ((event.clientX - rect.left) / element.width) - 0.5 + padding[0] / ySize;
+    const y = ((-(event.clientY - rect.top) / element.height) + 1) - 0.5 + padding[1] / ySize;
     console.log("x: " + x + " y: " + y);
     return [x, y];
 }
