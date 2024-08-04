@@ -28,7 +28,7 @@ charImg.addEventListener('mousedown', function(e) {
         drawCanvas();
     } else
     {
-        outputTextarea.value = JSON.stringify(charArray, null, 2);
+        outputTextarea.value = JSON.stringify(charArray);
     }
 
 })

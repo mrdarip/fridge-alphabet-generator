@@ -190,11 +190,13 @@ charId = 0;
 mDia = 3;
 mH = 3;
 mSides = 100;
+fontName = "Arial";
+echo("fontName: ", fontName);
 
 generateChar(
     char = charactersAndPos[charId][0],
     fontSize = 40,
-    font = "Helvetica:style=Bold",
+    font = concat(fontName,":style=Bold"),
     charThickness =  2,
     magnetOffset = charactersAndPos[charId][1],
     magnetDiagonal = mDia,
