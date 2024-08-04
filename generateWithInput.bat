@@ -31,8 +31,10 @@ SET chars25=Z
 
 set /P font=Enter font name:
 
+echo Generating preview images...
 mkdir "preview"
 FOR /L %%A IN (0,1,25) DO (
+    call echo %%chars%%A%%
     call "%OPSCAD_DIR%" -q --preview --projection o --camera=20,20,0,0,0,0,120 --imgsize=1000,1000 -o preview/%%chars%%A%%.png -D "fontName=\"%font%\"" -D charId=%%A ./generator.scad
 )
 
@@ -48,9 +50,10 @@ echo ; >> charsAndPos.scad
 REM Square magnets
 FOR /L %%H IN (1,1,10) DO (
     FOR /L %%D IN (1,1,10) DO (
-        echo %%D mm diameter, %%H mm height
+        echo %%D/10 mm diameter, %%H/10 mm height
         mkdir "magnets\square\%%Dmm_diameter\%%Hmm_height"
         FOR /L %%A IN (0,1,25) DO (
+            call echo %%chars%%A%%
             call "%OPSCAD_DIR%" -q -o magnets\square\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D "fontName=\"%font%\"" -D mDia=%%B -D mSides=4 ./generator.scad
         )
     )
