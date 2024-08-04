@@ -3,7 +3,7 @@ var currentChar = 0;
 var charArray = [];
 
 const distance = 120;
-const totalSize = 0;
+const totalSize = 0.4 * distance;
 
 var charImg = document.getElementById('char');
 var outputTextarea = document.getElementById('output');
@@ -14,7 +14,7 @@ charImg.addEventListener('mousedown', function(e) {
     charArray.push(
         [
             characters[currentChar],
-            getCursorUnitaryPosition(charImg, e)
+            getCursorUnitaryPosition(charImg, e).map(x => x * totalSize)
         ]
     );
     
