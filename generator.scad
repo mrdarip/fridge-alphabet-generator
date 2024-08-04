@@ -191,6 +191,8 @@ charactersAndPos=
   ]
 ];
 
+cylinder(d = 1, h=3, center=true, $fn=100);
+
 charId = 0;
 mDia = 3;
 mH = 3;
