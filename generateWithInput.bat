@@ -40,13 +40,18 @@ start ./index.html
 
 set /P positions=Enter html output positions:
 
+rem write to file
+echo charactersAndPos= > charsAndPos.scad
+echo %positions% >> charsAndPos.scad
+echo ; >> charsAndPos.scad
+
 REM Square magnets
 FOR /L %%H IN (1,1,10) DO (
     FOR /L %%D IN (1,1,10) DO (
         echo %%D mm diameter, %%H mm height
         mkdir "magnets\square\%%Dmm_diameter\%%Hmm_height"
         FOR /L %%A IN (0,1,25) DO (
-            call "%OPSCAD_DIR%" -q -o magnets\square\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D "fontName=\"%font%\"" -D "charactersAndPos=%positions%" -D mDia=%%B -D mSides=4 ./generator.scad
+            call "%OPSCAD_DIR%" -q -o magnets\square\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D "fontName=\"%font%\"" -D mDia=%%B -D mSides=4 ./generator.scad
         )
     )
 )
