@@ -1,9 +1,14 @@
-y size (aprox),distance (exact)
-100,250
-40,100
-50,125
-80,200
-90,225
+distance (exact),y size (aprox)
+1,"0,4"
+5,2
+10,4
+100,40
+125,50
+200,80
+225,90
+250,100
 ,
-linear regression results,"2,5x + 0"
+linear regression results,"0,4x + 0"
 ,R= 1
+,
+size = 0.4 * distance,
