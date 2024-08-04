@@ -3,7 +3,10 @@ var currentChar = 0;
 var charArray = [];
 
 const distance = 120;
-const totalSize = 0.4 * distance;
+const padding = [20,20];
+
+const ySize = 0.4 * distance;
+
 
 var charImg = document.getElementById('char');
 var outputTextarea = document.getElementById('output');
@@ -14,7 +17,7 @@ charImg.addEventListener('mousedown', function(e) {
     charArray.push(
         [
             characters[currentChar],
-            getCursorUnitaryPosition(charImg, e).map(x => x * totalSize)
+            getCursorUnitaryPosition(charImg, e).map(x => x * ySize)
         ]
     );
 
@@ -36,8 +39,8 @@ function drawCanvas(){
 
 function getCursorUnitaryPosition(element, event) {
     const rect = element.getBoundingClientRect()
-    const x = ((event.clientX - rect.left) / element.width);
-    const y = ((-(event.clientY - rect.top) / element.height) + 1);
+    const x = ((event.clientX - rect.left) / element.width) - 0.5
+    const y = ((-(event.clientY - rect.top) / element.height) + 1) - 0.5;
     console.log("x: " + x + " y: " + y);
     return [x, y];
 }
