@@ -12,6 +12,9 @@ body {
     "output";
     justify-items: stretch;
     background-color: antiquewhite;
+
+  margin: 0px;
+  padding: 0px;
 }
 
 .char {
@@ -36,4 +39,12 @@ img{
   -ms-user-select: none;
 
   cursor:crosshair;
+}
+
+#maxDiameterCircle {
+  border-radius: 50%;
+  user-select: none;
+  background: rgba(159, 255, 245, 1);
+  position: relative;
+  padding: 5px;
 }
