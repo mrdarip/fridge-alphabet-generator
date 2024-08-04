@@ -17,6 +17,8 @@ charImg.addEventListener('mousedown', function(e) {
             getCursorUnitaryPosition(charImg, e).map(x => x * totalSize)
         ]
     );
+
+    console.log(charArray[charArray.length - 1]);
     
     if(currentChar < characters.length - 1){
         currentChar++;
