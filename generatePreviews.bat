@@ -30,8 +30,9 @@ SET chars25=Z
 REM set variable with openscad dir
 set OPSCAD_DIR=C:\Program Files\OpenSCAD\openscad.exe
 
+set distance = 100
 
 mkdir "preview"
 FOR /L %%A IN (0,1,25) DO (
-    call "%OPSCAD_DIR%" -q --preview --view scales --projection o --camera=20,20,0,0,0,0,100 -o preview/%%chars%%A%%.png -D charId=%%A ./generator.scad
+    call "%OPSCAD_DIR%" -q --preview --projection o --camera=20,20,0,0,0,0,100 --imgsize=1000,1000 -o preview/%%chars%%A%%.png -D charId=%%A ./generator.scad
 )
