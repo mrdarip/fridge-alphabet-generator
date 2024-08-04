@@ -25,3 +25,7 @@ body {
 #output {
   grid-area: output;
 }
+
+img{
+  width: 100%;
+}
