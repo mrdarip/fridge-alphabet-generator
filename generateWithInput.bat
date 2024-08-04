@@ -48,9 +48,9 @@ echo %positions% >> charsAndPos.scad
 echo ; >> charsAndPos.scad
 
 REM Square magnets
-FOR /L %%H IN (1,1,10) DO (
-    FOR /L %%D IN (1,1,10) DO (
-        echo %%D/10 mm diameter, %%H/10 mm height
+FOR /L %%H IN (1,1,8) DO (
+    FOR /L %%D IN (1,1,8) DO (
+        echo %%D/8 mm diameter, %%H/8 mm height
         mkdir "magnets\square\%%Dmm_diameter\%%Hmm_height"
         FOR /L %%A IN (0,1,25) DO (
             call echo %%chars%%A%%
@@ -60,8 +60,8 @@ FOR /L %%H IN (1,1,10) DO (
 )
 
 REM Round magnets
-FOR /L %%H IN (1,1,10) DO (
-    FOR /L %%D IN (1,1,10) DO (
+FOR /L %%H IN (1,1,8) DO (
+    FOR /L %%D IN (1,1,8) DO (
         echo %%D mm diameter, %%H mm height
         mkdir "magnets\round\%%Dmm_diameter\%%Hmm_height"
         FOR /L %%A IN (0,1,25) DO (
