@@ -4,14 +4,17 @@ var charArray = [];
 
 const distance = 120;
 const padding = [20,20];
-const maxHoleDiameter = 10;
+const maxHoleDiameterInMM = 10;
 
 const ySizeInMM = 0.4 * distance;
+const maxHoleDiameterScreenPercent = (maxHoleDiameterInMM/ySizeInMM);
+
 
 var charImg = document.getElementById('char');
 var outputTextarea = document.getElementById('output');
 var maxDiameterCircle = document.getElementById('maxDiameterCircle');
-maxDiameterCircle.style.width = (maxHoleDiameter/ySizeInMM) + "vw";
+maxDiameterCircle.style.width =  maxHoleDiameterScreenPercent + "vw";
+maxDiameterCircle.style.height =  maxHoleDiameterScreenPercent + "vw";
 
 drawCanvas();
 
@@ -52,6 +55,6 @@ onmousemove = function(e){
     var yPos = e.pageY;
     console.log("x: " + xPos + " y: " + yPos);
     
-    maxDiameterCircle.style.top = yPos + "px";
-    maxDiameterCircle.style.left = xPos + "px";
+    maxDiameterCircle.style.top = "calc("+ yPos + "px - " + 2 * maxHoleDiameterScreenPercent + "vw)";
+    maxDiameterCircle.style.left = "calc(" + xPos + "px - "+ 2 * maxHoleDiameterScreenPercent + "vw)";
 }

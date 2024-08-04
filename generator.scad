@@ -1,5 +1,7 @@
 include <charsAndPos.scad>;
 
+cylinder(h = 10, d = 10, center = true, $fn = 100);
+
 charId = 0;
 mDia = 3;
 mH = 3;
