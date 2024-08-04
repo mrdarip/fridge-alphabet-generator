@@ -2,22 +2,14 @@ const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var currentChar = 0;
 var charArray = [];
 
-const previewResolution = [1000, 1000];
 const distance = 120;
 const padding = [20,20];
-const maxHoleDiameterInMM = 8;
+
 
 const ySizeInMM = 0.4 * distance;
-const pxPerMM = previewResolution[1] / ySizeInMM;
-const maxHoleDiameterScreenPercent = (maxHoleDiameterInMM/ ySizeInMM) * 100;
-const maxHoleDiameterInPx =  maxHoleDiameterInMM * pxPerMM;
-
 
 var charImg = document.getElementById('char');
 var outputTextarea = document.getElementById('output');
-var maxDiameterCircle = document.getElementById('maxDiameterCircle');
-maxDiameterCircle.style.width =  maxHoleDiameterInPx+ "px";
-maxDiameterCircle.style.height =  "5.4 vw";
 
 drawCanvas();
 
@@ -51,13 +43,4 @@ function getCursorUnitaryPosition(element, event) {
     const y = ((-(event.clientY - rect.top) / element.height) + 1) - 0.5 + padding[1] / ySizeInMM;
     console.log("x: " + x + " y: " + y);
     return [x, y];
-}
-
-onmousemove = function(e){
-    var xPos = e.pageX;
-    var yPos = e.pageY;
-    console.log("x: " + xPos + " y: " + yPos);
-    
-    maxDiameterCircle.style.top = "calc("+ yPos + "px - " + 2 * maxHoleDiameterScreenPercent + "vw)";
-    maxDiameterCircle.style.left = "calc(" + xPos + "px - "+ 2 * maxHoleDiameterScreenPercent + "vw)";
 }
