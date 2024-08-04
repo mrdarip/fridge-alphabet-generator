@@ -2,19 +2,19 @@ const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var currentChar = 0;
 var charArray = [];
 
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
+const distance = 120;
+const totalSize = 0;
 
+var charImg = document.getElementById('char');
 var outputTextarea = document.getElementById('output');
-var fontNameInput = document.getElementById('fontName');
 
 drawCanvas();
 
-canvas.addEventListener('mousedown', function(e) {
+charImg.addEventListener('mousedown', function(e) {
     charArray.push(
         [
             characters[currentChar],
-            getCursorPosition(canvas, e)
+            getCursorUnitaryPosition(charImg, e)
         ]
     );
     
@@ -28,25 +28,14 @@ canvas.addEventListener('mousedown', function(e) {
 
 })
 
-fontNameInput.addEventListener('input', function(e) {
-    drawCanvas();
-})
-
 function drawCanvas(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = "grey";
-    ctx.fillRect(0, 0, 500, 500);
-    
-    ctx.fillStyle = "black";
-    ctx.font = "bold 600px " + fontNameInput.value;
-    ctx.fillText(characters[currentChar],50,430);
-    
+    charImg.src = "./preview/" + characters[currentChar] + ".png";    
 }
 
-function getCursorPosition(canvas, event) {
-    const rect = canvas.getBoundingClientRect()
-    const x = ((event.clientX - rect.left) - 77) / 10.79 + 2.58
-    const y = ((-(event.clientY - rect.top) + 430) /384) * 35.45
+function getCursorUnitaryPosition(element, event) {
+    const rect = element.getBoundingClientRect()
+    const x = ((event.clientX - rect.left) / element.width);
+    const y = ((-(event.clientY - rect.top) / element.height) + 1);
+    console.log("x: " + x + " y: " + y);
     return [x, y];
 }

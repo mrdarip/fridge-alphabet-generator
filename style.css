@@ -7,15 +7,15 @@ body {
   gap: 1em 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "canvas"
+    "char"
     "fontName"
     "output";
     justify-items: stretch;
     background-color: antiquewhite;
 }
 
-.canvas {
-  grid-area: canvas;
+.char {
+  grid-area: char;
 }
 
 #fontName {
