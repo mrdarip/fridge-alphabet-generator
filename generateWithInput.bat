@@ -65,7 +65,7 @@ FOR /L %%H IN (1,1,5) DO (
         echo %%D/8 mm diameter, %%H/5 mm height
         mkdir "magnets\round\%%Dmm_diameter\%%Hmm_height"
         FOR /L %%A IN (0,1,25) DO (
-            call "%OPSCAD_DIR%" -q -o magnets\round\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D "fontName=\"%font%\"" -D "charactersAndPos=%positions%" -D mDia=%%B -D mSides=100 ./generator.scad
+            call "%OPSCAD_DIR%" -q -o magnets\round\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D "fontName=\"%font%\"" -D mDia=%%B -D mSides=100 ./generator.scad
         )
     )
 )
