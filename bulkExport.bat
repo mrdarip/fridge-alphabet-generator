@@ -30,24 +30,27 @@ SET chars25=Z
 REM set variable with openscad dir
 set OPSCAD_DIR=C:\Program Files\OpenSCAD\openscad.exe
 
-REM Square magnets
+set /P font=Enter font name:
 
-FOR /L %%H IN (1,1,10) DO (
-    FOR /L %%D IN (1,1,10) DO (
-        echo %%D mm diameter, %%H mm height
+REM Square magnets
+FOR /L %%H IN (1,1,5) DO (
+    FOR /L %%D IN (3,1,8) DO (
+        echo %%D/8 mm diameter, %%H/5 mm height
         mkdir "magnets\square\%%Dmm_diameter\%%Hmm_height"
         FOR /L %%A IN (0,1,25) DO (
-            call "%OPSCAD_DIR%" -q -o magnets\square\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D mDia=%%B -D mSides=4 ./generator.scad
+            call echo %%chars%%A%%
+            call "%OPSCAD_DIR%" -q -o magnets\square\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D "fontName=\"%font%\"" -D mDia=%%B -D mSides=4 ./generator.scad
         )
     )
 )
 
-FOR /L %%H IN (1,1,10) DO (
-    FOR /L %%D IN (1,1,10) DO (
-        echo %%D mm diameter, %%H mm height
+REM Round magnets
+FOR /L %%H IN (1,1,5) DO (
+    FOR /L %%D IN (3,1,8) DO (
+        echo %%D/8 mm diameter, %%H/5 mm height
         mkdir "magnets\round\%%Dmm_diameter\%%Hmm_height"
         FOR /L %%A IN (0,1,25) DO (
-            call "%OPSCAD_DIR%" -q -o magnets\round\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D mDia=%%B -D mSides=100 ./generator.scad
+            call "%OPSCAD_DIR%" -q -o magnets\round\%%Dmm_diameter\%%Hmm_height\%%chars%%A%%.stl -D charId=%%A -D "fontName=\"%font%\"" -D mDia=%%B -D mSides=100 ./generator.scad
         )
     )
 )

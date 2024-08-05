@@ -30,7 +30,11 @@ SET chars25=Z
 REM set variable with openscad dir
 set OPSCAD_DIR=C:\Program Files\OpenSCAD\openscad.exe
 
+set /P font=Enter font name:
+
+echo Generating preview images...
 mkdir "preview"
 FOR /L %%A IN (0,1,25) DO (
-    call "%OPSCAD_DIR%" -q --preview --projection o --camera=20,20,0,0,0,0,120 --imgsize=1000,1000 -o preview/%%chars%%A%%.png -D charId=%%A ./generator.scad
+    call echo %%chars%%A%%
+    call "%OPSCAD_DIR%" -q --preview --projection o --camera=20,20,0,0,0,0,120 --imgsize=1000,1000 -o preview/%%chars%%A%%.png -D "fontName=\"%font%\"" -D charId=%%A ./generator.scad
 )
